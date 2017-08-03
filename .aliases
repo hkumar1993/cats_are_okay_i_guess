@@ -1,0 +1,5 @@
+alias be="bundle exec"
+alias gaa="git add -A"
+alias gcm="git commit -m"
+alias gph="git push"
+alias gpl="git pull"
