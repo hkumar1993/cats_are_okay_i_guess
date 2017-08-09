@@ -4,3 +4,20 @@ alias gcm="git commit -m"
 alias gph="git push"
 alias gpl="git pull"
 alias starwars="telnet towel.blinkenlights.nl"
+mrspec () {
+
+  mkdir "spec_folder"
+  cd spec_folder
+  mkdir spec
+  mkdir lib
+  touch Gemfile
+
+  if [ $# -eq 0 ]
+  then
+    ls
+  else
+    cd ..
+    mv spec_folder "$@"
+  fi
+
+}
