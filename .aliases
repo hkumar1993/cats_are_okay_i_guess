@@ -4,6 +4,31 @@ alias gcm="git commit -m"
 alias gph="git push"
 alias gpl="git pull"
 alias starwars="telnet towel.blinkenlights.nl"
+
+gstart() {
+
+  git init
+  touch README.md
+  touch .gitignore
+  git add -A
+  git commit -m "First Commit"
+
+  if [ $# -eq 0 ]
+  then
+    echo "Set name of Repo AND/OR Set Access Token "
+  else
+    #set access token here
+    echo "If you received \"Bad Credentials\" please set access token from github"
+    echo "$@"
+    curl https://api.github.com/user/repos?access_token=INSERT_TOKEN_HERE -d "{\"name\":\"$@\"}"
+  fi
+
+  git remote add origin https://github.com/INSERT_USERNAME_HERE/"$@".git
+  git push -u origin master
+
+}
+
+
 mrspec () {
 
   mkdir "spec_folder"
